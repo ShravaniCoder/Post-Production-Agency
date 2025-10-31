@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+
+
+
+@theme {
+   --font-pt-sans-regular : "PT Sans", sans-serif;
+
+}
+
+@keyframes cloudDrift1 {
+  0%   { transform: translate3d(-4%, 0, 0) scale(1); }
+  50%  { transform: translate3d(6%, -3%, 0) scale(1.03); }
+  100% { transform: translate3d(-4%, 0, 0) scale(1); }
+}
+@keyframes cloudDrift2 {
+  0%   { transform: translate3d(6%, 0, 0) scale(1); }
+  50%  { transform: translate3d(-8%, 4%, 0) scale(1.04); }
+  100% { transform: translate3d(6%, 0, 0) scale(1); }
+}
+@keyframes cloudDrift3 {
+  0%   { transform: translate3d(-2%, 0, 0) scale(1); }
+  50%  { transform: translate3d(4%, -2%, 0) scale(1.02); }
+  100% { transform: translate3d(-2%, 0, 0) scale(1); }
+}
+@keyframes noiseFloat {
+  0%   { transform: translate3d(0,0,0) scale(1); opacity:0.75; }
+  50%  { transform: translate3d(-3%, -1%,0) scale(1.02); opacity:0.85; }
+  100% { transform: translate3d(0,0,0) scale(1); opacity:0.75; }
+}
+@keyframes sparkShift {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0.95; }
+  50%  { transform: translateY(-6px) rotate(0.5deg); opacity: 0.65; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0.95; }
+}
+
+/* helper classes used in component */
+.animate-cloud1 { animation: cloudDrift1 14s ease-in-out infinite; }
+.animate-cloud2 { animation: cloudDrift2 18s ease-in-out infinite; }
+.animate-cloud3 { animation: cloudDrift3 11s ease-in-out infinite; }
+.animate-noise  { animation: noiseFloat 20s linear infinite; }
+.animate-sparks { animation: sparkShift 8s ease-in-out infinite; }
+
