@@ -220,63 +220,69 @@ const Contact = () => {
         </div>
 
         {/* Form */}
-        <motion.form
-          className="relative max-w-3xl mx-auto space-y-4 z-10"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          {[
-            ["Name", "Company"],
-            ["Phone", "Email"],
-          ].map((row, rowIndex) => (
-            <motion.div
-              key={rowIndex}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-              variants={fadeUp}
-              custom={rowIndex}
-            >
-              {row.map((field, i) => (
-                <div key={i}>
-                  <label className="block text-sm font-medium mb-2">{field}</label>
-                  <input
-                    type={field === "Email" ? "email" : "text"}
-                    placeholder={field}
-                    className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          ))}
+     <motion.form
+  className="relative max-w-3xl mx-auto space-y-4 z-10"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+>
+  {[
+    ["Name", "Company"],
+    ["Phone", "Email"],
+  ].map((row, rowIndex) => (
+    <motion.div
+      key={rowIndex}
+      className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+      variants={fadeUp}
+      custom={rowIndex}
+    >
+      {row.map((field, i) => (
+        <div key={i}>
+          <label className="block text-sm font-medium mb-2">{field}</label>
+          <input
+            type={field === "Email" ? "email" : "text"}
+            placeholder={field}
+            className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+        </div>
+      ))}
+    </motion.div>
+  ))}
 
-          <motion.div variants={fadeUp}>
-            <label className="block text-sm font-medium mb-2">Subject</label>
-            <input
-              type="text"
-              placeholder="Subject"
-              className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-            />
-          </motion.div>
+  <motion.div variants={fadeUp}>
+    <div>
+      <label className="block text-sm font-medium mb-2">Subject</label>
+      <input
+        type="text"
+        placeholder="Subject"
+        className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+      />
+    </div>
+  </motion.div>
 
-          <motion.div variants={fadeUp}>
-            <label className="block text-sm font-medium mb-2">Message</label>
-            <textarea
-              rows="5"
-              placeholder="Message"
-              className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-pink-500"
-            ></textarea>
-          </motion.div>
+  <motion.div variants={fadeUp}>
+    <div>
+      <label className="block text-sm font-medium mb-2">Message</label>
+      <textarea
+        rows="5"
+        placeholder="Message"
+        className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-pink-500"
+      ></textarea>
+    </div>
+  </motion.div>
 
-          <motion.div variants={fadeUp}>
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-2 py-3 text-white font-medium rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition duration-200"
-            >
-              <FaEnvelope />
-              Send Message
-            </button>
-          </motion.div>
-        </motion.form>
+  <motion.div variants={fadeUp}>
+    <button
+      type="submit"
+      className="w-full flex items-center justify-center gap-2 py-3 text-white font-medium rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition duration-200"
+    >
+      <FaEnvelope />
+      Send Message
+    </button>
+  </motion.div>
+</motion.form>
+
+
       </section>
 
 

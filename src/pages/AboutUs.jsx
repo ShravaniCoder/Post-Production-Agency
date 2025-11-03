@@ -26,7 +26,7 @@ const AboutUs = () => {
                className="absolute w-[180%] h-[150%] -left-[20%] -top-[30%] rounded-full"
                style={{
                  background:
-                   "radial-gradient(closest-side at 25% 30%, rgba(254,26,136,0.28) 0%, rgba(254,26,136,0.20) 20%, rgba(254,26,136,0.10) 45%, transparent 70%)",
+                   "radial-gradient(closest-side at 10% 30%, rgba(254,26,136,0.28) 0%, rgba(254,26,136,0.20) 20%, rgba(254,26,136,0.10) 45%, transparent 70%)",
                  filter: "blur(120px) saturate(120%)",
                }}
                animate={{
@@ -40,7 +40,7 @@ const AboutUs = () => {
                className="absolute w-[180%] h-[150%] -right-[20%] -top-[30%] rounded-full"
                style={{
                  background:
-                   "radial-gradient(closest-side at 75% 60%, rgba(254,26,136,0.28) 0%, rgba(254,26,136,0.20) 20%, rgba(254,26,136,0.10) 45%, transparent 70%)",
+                   "radial-gradient(closest-side at 60% 60%, rgba(254,26,136,0.28) 0%, rgba(254,26,136,0.20) 20%, rgba(254,26,136,0.10) 45%, transparent 70%)",
                  filter: "blur(120px) saturate(120%)",
                }}
                animate={{
@@ -90,10 +90,10 @@ const AboutUs = () => {
             Our Identity
           </h1>
           <div className="flex md:flex-row py-10 gap-10 flex-col items-center justify-center">
-            <motion.div
+           <motion.div
               initial="hidden"
               whileInView="visible"
-              variants={textVariantLeft}
+              variants={textVariantRight}
               viewport={{ once: true }}
               className="aspect-square w-80 md:w-96 rounded-full overflow-hidden flex-shrink-0 mx-auto shadow-[0_0_25px_rgba(254,26,136,0.15)]"
             >

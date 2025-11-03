@@ -1,4 +1,5 @@
 
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar"
 import Services from "./components/Services";
 import AboutUs from "./pages/AboutUs"
@@ -22,6 +23,8 @@ function App() {
        <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
       </Routes>
+
+      <Footer />
     </>
   )
 }

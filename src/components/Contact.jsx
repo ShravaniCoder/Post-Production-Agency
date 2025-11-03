@@ -77,128 +77,113 @@ const Contact = () => {
       </div>
 
       {/* 🔹 Bottom Form Section */}
-      <motion.div
-        className="relative bg-black flex items-start justify-center px-4 pb-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {/* Dotted Background */}
-        <motion.div
-          aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_1px,_transparent_1px)] bg-[length:20px_20px] opacity-20"
-          variants={fadeIn}
-        ></motion.div>
+ <motion.div
+  className="relative bg-black flex items-start justify-center px-4 pb-20"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+>
+  {/* Dotted Background */}
+  <motion.div
+    aria-hidden
+    className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_1px,_transparent_1px)] bg-[length:20px_20px] opacity-20"
+    variants={fadeIn}
+  ></motion.div>
 
-        {/* Form Container */}
-        <motion.div
-          className="relative z-10 bg-white/20 border border-white/20 rounded-xl p-8 md:p-12 w-full max-w-2xl shadow-lg -mt-[12vh] md:-mt-[17vh]"
-          variants={fadeFromBottom}
+  {/* ✨ Form Container (single animated box) */}
+  <motion.div
+    className="relative z-10 bg-white/20 border border-white/20 rounded-xl p-8 md:p-12 w-full max-w-2xl shadow-lg -mt-[12vh] md:-mt-[17vh]"
+    variants={fadeFromBottom}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+  >
+    <form className="flex flex-col gap-3">
+      {/* 🔸 Name & Company */}
+      <div className="flex flex-col md:flex-row gap-3">
+        <div className="flex-1">
+          <label className="text-base text-left text-white mb-1 block">Name</label>
+          <input
+            type="text"
+            placeholder="Name"
+            className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="text-base text-left text-white mb-1 block">Company</label>
+          <input
+            type="text"
+            placeholder="Company"
+            className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
+          />
+        </div>
+      </div>
+
+      {/* 🔸 Phone & Email */}
+      <div className="flex flex-col md:flex-row gap-3">
+        <div className="flex-1">
+          <label className="text-base text-left text-white mb-1 block">Phone</label>
+          <input
+            type="text"
+            placeholder="Phone"
+            className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="text-base text-left text-white mb-1 block">Email</label>
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
+          />
+        </div>
+      </div>
+
+      {/* 🔸 Date & Service */}
+      <div className="flex flex-col md:flex-row gap-3">
+        <div className="flex-1">
+          <label className="text-base text-left text-white mb-1 block">Date</label>
+          <input
+            type="date"
+            className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="text-base text-left text-white mb-1 block">Service</label>
+          <select className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none">
+            <option>Entire Film Editing</option>
+            <option>VFX & CGI Studio Work</option>
+            <option>Sound Design & Final Mixing</option>
+            <option>Trailer & Promo Editing</option>
+            <option>Digital Film Branding & Promotion</option>
+          </select>
+        </div>
+      </div>
+
+      {/* 🔸 Note */}
+      <div>
+        <label className="text-base text-left text-white mb-1 block">Note</label>
+        <textarea
+          rows="4"
+          placeholder="Note"
+          className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
+        ></textarea>
+      </div>
+
+      {/* 🔸 Button */}
+      <div>
+        <button
+          type="submit"
+          className="w-full py-3 rounded-full bg-gradient-to-l from-fuchsia-700 to-pink-600 hover:from-fuchsia-600 hover:to-pink-600 text-white font-semibold shadow-md transition-all"
         >
-          <motion.form
-            className="flex flex-col gap-3"
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {/* 🔸 Name & Company */}
-            <motion.div className="flex flex-col md:flex-row gap-3" variants={fadeFromLeft}>
-              <div className="flex-1">
-                <label className="text-base text-left text-white mb-1 block">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
-                />
-              </div>
-              <div className="flex-1">
-                <label className="text-base text-left text-white mb-1 block">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  placeholder="Company"
-                  className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
-                />
-              </div>
-            </motion.div>
+          Book Now !
+        </button>
+      </div>
+    </form>
+  </motion.div>
+</motion.div>
 
-            {/* 🔸 Phone & Email */}
-            <motion.div className="flex flex-col md:flex-row gap-3" variants={fadeFromRight}>
-              <div className="flex-1">
-                <label className="text-base text-left text-white mb-1 block">
-                  Phone
-                </label>
-                <input
-                  type="text"
-                  placeholder="Phone"
-                  className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
-                />
-              </div>
-              <div className="flex-1">
-                <label className="text-base text-left text-white mb-1 block">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
-                />
-              </div>
-            </motion.div>
 
-            {/* 🔸 Date & Service */}
-            <motion.div className="flex flex-col md:flex-row gap-3" variants={fadeFromLeft}>
-              <div className="flex-1">
-                <label className="text-base text-left text-white mb-1 block">
-                  Date
-                </label>
-                <input
-                  type="date"
-                  className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
-                />
-              </div>
-              <div className="flex-1">
-                <label className="text-base text-left text-white mb-1 block">
-                  Service
-                </label>
-                <select className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none">
-                  <option>Entire Film Editing</option>
-                  <option>VFX & CGI Studio Work</option>
-                  <option>Sound Design & Final Mixing</option>
-                  <option>Trailer & Promo Editing</option>
-                    <option>Digital Film Branding & Promotion</option>
-                </select>
-              </div>
-            </motion.div>
-
-            {/* 🔸 Note */}
-            <motion.div variants={fadeFromRight}>
-              <label className="text-base text-left text-white mb-1 block">
-                Note
-              </label>
-              <textarea
-                rows="4"
-                placeholder="Note"
-                className="w-full px-3 py-2 rounded-md bg-white text-gray-700 outline-none"
-              ></textarea>
-            </motion.div>
-
-            {/* 🔸 Button */}
-            <motion.div variants={fadeFromBottom}>
-              <button
-                type="submit"
-                className="w-full py-3 rounded-full bg-gradient-to-l from-fuchsia-700 to-pink-600 hover:from-fuchsia-600 hover:to-pink-600 text-white font-semibold shadow-md transition-all"
-              >
-                Book Now !
-              </button>
-            </motion.div>
-          </motion.form>
-        </motion.div>
-      </motion.div>
     </div>
   );
 };

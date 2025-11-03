@@ -148,14 +148,22 @@ const WhyChooseUs = () => {
         </div>
 
         <div className=" w-full h-[300px] sm:h-[350px] md:h-[420px] lg:h-[500px] overflow-hidden border border-gray-700">
-          <video
-            src={ChooseV}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          />
+         <video
+  src={ChooseV}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  className="w-full h-full object-cover"
+  webkit-playsinline="true"
+  x5-playsinline="true"
+  x-webkit-airplay="allow"
+  x5-video-player-type="h5"
+  x5-video-player-fullscreen="false"
+  x5-video-orientation="portraint"
+/>
+
         </div>
       </div>
     </>
