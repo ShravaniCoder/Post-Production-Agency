@@ -1,11 +1,11 @@
 import React from "react";
-import Bgimage from "../assets/contact.jpg";
+import Bgimage from "../assets/contact.webp";
 
 const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* 🔹 Top Half Section with Image Background */}
-      <div className="relative h-[40vh] md:h-[55vh] flex flex-col items-center justify-center text-center overflow-hidden">
+      <div className="relative h-[50vh] md:h-[55vh] flex flex-col items-center justify-center text-center overflow-hidden">
         <img
           src={Bgimage}
           alt="background"
@@ -33,7 +33,7 @@ const Contact = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.1)_1px,_transparent_1px)] bg-[length:20px_20px] opacity-20"></div>
 
         {/* Form Container */}
-        <div className="relative z-10 bg-white/20 border border-white/20 rounded-xl p-8 md:p-12 w-full max-w-2xl shadow-lg -mt-[9vh] md:-mt-[17vh]">
+        <div className="relative z-10 bg-white/20 border border-white/20 rounded-xl p-8 md:p-12 w-full max-w-2xl shadow-lg -mt-[12vh] md:-mt-[17vh]">
           <form className="flex flex-col gap-3">
             {/* 🔸 Name & Company in one row */}
             <div className="flex flex-row gap-3">

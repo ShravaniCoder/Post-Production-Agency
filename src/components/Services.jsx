@@ -121,118 +121,115 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Services Section */}
-      <section className="bg-black border-black py-7 text-white md:py-20 px-5">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="relative w-4 h-4 flex items-center justify-center">
-              <div className="absolute w-4 h-4 rounded-full border-2 border-[#FE1A88] animate-pulse shadow-[0_0_8px_2px_rgba(168,85,247,0.7)]"></div>
-              <div className="w-2 h-2 bg-[#FE1A88] rounded-full"></div>
-            </div>
-            <p className="text-[#FE1A88] text-xl font-medium ">Our Core Services</p>
-          </div>
+<section className="relative bg-gradient-to-b from-black via-[#0b0005] to-black border-black py-7 text-white md:py-20 px-5 overflow-hidden">
+  {/* 🔹 Subtle pink glow in background */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(254,26,136,0.08),transparent_70%)] pointer-events-none"></div>
 
-          <h2 className="text-2xl sm:text-5xl font-bold text-gray-100 leading-tight">
-            Digital Solutions That Drive <br />
-            <span className="text-gray-300">Real Results</span>
-          </h2>
+  <div className="max-w-7xl mx-auto text-center relative z-10">
+    {/* Heading */}
+    <div className="flex items-center justify-center gap-2 mb-4">
+      <div className="relative w-4 h-4 flex items-center justify-center">
+        <div className="absolute w-4 h-4 rounded-full border-2 border-[#FE1A88] animate-pulse shadow-[0_0_8px_2px_rgba(168,85,247,0.7)]"></div>
+        <div className="w-2 h-2 bg-[#FE1A88] rounded-full"></div>
+      </div>
+      <p className="text-[#FE1A88] text-xl font-medium">Our Core Services</p>
+    </div>
 
-          {/* Cards */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-[#121212] border border-gray-800 rounded-2xl p-8 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
-              >
-                {/* Icon + Title */}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-24 h-24 flex items-center justify-center rounded-2xl">
-                    {/* Pink gradient border layer */}
-                    <div
-                      className="relative w-24 h-24 flex items-center justify-center rounded-2xl 
-             border-[7px] border-black p-[2px] bg-black"
-                    >
-                      {/* Inner pink gradient ring */}
-                      <div
-                        className="w-full h-full rounded-2xl 
-  bg-gradient-to-tl from-[#FE1A88] via-[#b946f7] to-[#FE1A88]
-  p-[0.5px]"
-                      >
-                        {/* Main black gradient container */}
-                        <div
-                          className="w-full h-full rounded-2xl 
-    bg-gradient-to-b from-[#2a2a2a] via-[#141414] to-[#000000]
-    flex items-center justify-center
-    shadow-[inset_2px_2px_6px_rgba(255,255,255,0.06),
-            inset_-2px_-2px_10px_rgba(0,0,0,0.9),
-            0_0_15px_4px_rgba(168,85,247,0.4)]"
-                        >
-                          <div className="text-10xl text-[#FE1A88]">
-                            {service.icon}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    <h2 className="text-2xl sm:text-5xl font-bold text-gray-100 leading-tight">
+      Digital Solutions That Drive <br />
+      <span className="text-gray-300">Real Results</span>
+    </h2>
 
-                  <h3 className="text-xl font-semibold text-left">
-                    {service.title}
-                  </h3>
-                </div>
-
-                {/* View Details Button */}
-                <button
-                  onClick={() => handleToggle(index)}
-                  className="flex items-center justify-between bg-black text-white px-5 py-3 rounded-full hover:bg-[#111] transition-all"
+    {/* Cards */}
+    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {services.map((service, index) => (
+        <div
+          key={index}
+          className="bg-[#121212]/90 border border-gray-800 rounded-2xl p-8 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+        >
+          {/* Icon + Title */}
+          <div className="flex items-center gap-4 mb-4">
+            <div className="relative w-24 h-24 flex items-center justify-center rounded-2xl">
+              {/* Pink gradient border layer */}
+              <div className="relative w-24 h-24 flex items-center justify-center rounded-2xl border-[7px] border-black p-[2px] bg-black">
+                {/* Inner pink gradient ring */}
+                <div
+                  className="w-full h-full rounded-2xl 
+                    bg-gradient-to-tl from-[#FE1A88] via-[#b946f7] to-[#FE1A88]
+                    p-[0.5px]"
                 >
-                  <span>
-                    {openIndex === index ? "Hide Details" : "View Details"}
-                  </span>
-
+                  {/* Main black gradient container */}
                   <div
-                    className={`flex items-center justify-center w-8 h-8 rounded-full bg-[#FE1A88] transition-transform duration-300 ${
-                      openIndex === index ? "rotate-90" : ""
-                    }`}
+                    className="w-full h-full rounded-2xl 
+                      bg-gradient-to-b from-[#2a2a2a] via-[#141414] to-[#000000]
+                      flex items-center justify-center
+                      shadow-[inset_2px_2px_6px_rgba(255,255,255,0.06),
+                      inset_-2px_-2px_10px_rgba(0,0,0,0.9),
+                      0_0_15px_4px_rgba(168,85,247,0.4)]"
                   >
-                    <FaArrowRight className="text-white" />
+                    <div className="text-10xl text-[#FE1A88]">{service.icon}</div>
                   </div>
-                </button>
-
-                {/* Animated Description (below button with text animation) */}
-                <AnimatePresence>
-                  {openIndex === index && (
-                    <motion.div
-                      key="desc"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="mt-4 bg-[#1a1a1a] p-4 rounded-xl border border-gray-700 text-left"
-                    >
-                      <motion.div
-                        variants={textContainer}
-                        initial="hidden"
-                        animate="show"
-                        className="flex flex-wrap text-gray-300 text-sm leading-relaxed"
-                      >
-                        {service.desc.split(" ").map((word, i) => (
-                          <motion.span
-                            variants={textItem}
-                            key={i}
-                            className="mr-1 inline-block"
-                          >
-                            {word}
-                          </motion.span>
-                        ))}
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                </div>
               </div>
-            ))}
+            </div>
+
+            <h3 className="text-xl font-semibold text-left">{service.title}</h3>
           </div>
+
+          {/* View Details Button */}
+          <button
+            onClick={() => handleToggle(index)}
+            className="flex items-center justify-between bg-black text-white px-5 py-3 rounded-full hover:bg-[#111] transition-all"
+          >
+            <span>
+              {openIndex === index ? "Hide Details" : "View Details"}
+            </span>
+
+            <div
+              className={`flex items-center justify-center w-8 h-8 rounded-full bg-[#FE1A88] transition-transform duration-300 ${
+                openIndex === index ? "rotate-90" : ""
+              }`}
+            >
+              <FaArrowRight className="text-white" />
+            </div>
+          </button>
+
+          {/* Animated Description */}
+          <AnimatePresence>
+            {openIndex === index && (
+              <motion.div
+                key="desc"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="mt-4 bg-[#1a1a1a] p-4 rounded-xl border border-gray-700 text-left"
+              >
+                <motion.div
+                  variants={textContainer}
+                  initial="hidden"
+                  animate="show"
+                  className="flex flex-wrap text-gray-300 text-sm leading-relaxed"
+                >
+                  {service.desc.split(" ").map((word, i) => (
+                    <motion.span
+                      variants={textItem}
+                      key={i}
+                      className="mr-1 inline-block"
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
       <Contact />
     </>
   );
