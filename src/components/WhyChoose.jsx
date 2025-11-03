@@ -26,6 +26,29 @@ const WhyChooseUs = () => {
     },
   ];
 
+  // === Animation Variants ===
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.3 }, // delay between cards
+    },
+  };
+
+  const fadeFromLeft = {
+    hidden: { opacity: 0, x: -80 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
+  const fadeFromRight = {
+    hidden: { opacity: 0, x: 80 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  };
+
   return (
     <>
       {/* === MAIN SECTION === */}
@@ -36,7 +59,6 @@ const WhyChooseUs = () => {
           className="absolute inset-0 z-0 pointer-events-none will-change-transform"
           style={{ mixBlendMode: "screen" }}
         >
-          {/* Left Glow */}
           <motion.div
             className="absolute rounded-full w-[220%] h-[160%] -left-[70%] -top-[20%] sm:w-[180%] sm:h-[150%] sm:-left-[30%] sm:-top-[20%]"
             style={{
@@ -51,7 +73,6 @@ const WhyChooseUs = () => {
             transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* Right Glow */}
           <motion.div
             className="absolute rounded-full w-[220%] h-[160%] -right-[60%] -top-[40%] sm:w-[180%] sm:h-[150%] sm:-right-[20%] sm:-top-[30%]"
             style={{
@@ -70,56 +91,63 @@ const WhyChooseUs = () => {
         {/* === CONTENT LAYER === */}
         <div className="relative z-10 mx-auto text-center">
           {/* Header */}
-          <div className="text-center mb-10">
-            <p className="text-[#FE1A88] text-xl font-semibold font-carme-regular uppercase mb-3">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-center mb-10"
+          >
+            <motion.p
+              variants={fadeFromLeft}
+              className="text-[#FE1A88] text-xl font-semibold font-carme-regular uppercase mb-3"
+            >
               Why Choose Us
-            </p>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-tasa-orbiter font-bold leading-snug">
+            </motion.p>
+
+            <motion.h2
+              variants={fadeFromRight}
+              className="text-2xl md:text-4xl lg:text-5xl font-tasa-orbiter font-bold leading-snug"
+            >
               We make your business <br /> look good.
-            </h2>
-          </div>
+            </motion.h2>
+          </motion.div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {features.map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={fadeUp}
                 className="bg-[#1e1e1e]/70 rounded-lg p-6 text-center shadow-md flex flex-col justify-center min-h-[220px] hover:bg-[#222633]/80 transition-all duration-300 backdrop-blur-sm border border-gray-800"
               >
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                 <p className="text-base text-gray-300 leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* === VIDEO SECTION === */}
       <div className="w-full py-8 flex items-center justify-center bg-black relative overflow-hidden">
-        {/* Background Glow (subtle for video section) */}
         <div
           aria-hidden
           className="absolute inset-0 z-0 pointer-events-none"
           style={{ mixBlendMode: "screen" }}
         >
-          <motion.div
-            className="absolute rounded-full w-[200%] h-[160%] -left-[50%] -top-[40%] sm:w-[180%] sm:h-[150%] sm:-left-[25%] sm:-top-[30%]"
-            style={{
-              background:
-                "radial-gradient(closest-side at 50% 50%, rgba(254,26,136,0.25) 0%, rgba(254,26,136,0.15) 30%, transparent 70%)",
-              filter: "blur(90px) saturate(120%)",
-            }}
-            animate={{
-              scale: [1, 1.05, 1],
-              opacity: [0.8, 1, 0.8],
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          />
+          
+          
         </div>
 
-        <div className="relative z-10 w-full h-[300px] sm:h-[350px] md:h-[420px] lg:h-[500px] overflow-hidden border border-gray-700">
+        <div className=" w-full h-[300px] sm:h-[350px] md:h-[420px] lg:h-[500px] overflow-hidden border border-gray-700">
           <video
             src={ChooseV}
             autoPlay
