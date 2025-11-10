@@ -59,7 +59,7 @@ const Navbar = () => {
 
           <ul
             ref={sideMenuRef}
-            className="flex lg:hidden uppercase text-white flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-[60] h-screen bg-[#031026] transition-transform duration-500 translate-x-full"
+            className="flex lg:hidden uppercase text-white flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-[60] h-screen bg-black transition-transform duration-500 translate-x-full"
           >
             <div className="absolute right-6 top-14">
               <RxCross2

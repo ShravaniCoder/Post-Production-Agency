@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 import { motion } from "framer-motion";
@@ -19,6 +19,35 @@ const slideVariant = (direction = "left") => ({
   show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 });
 const Contact = () => {
+    const formRef = useRef();
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = formRef.current;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/4lv1jbh3svnka", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const name = formData.get("data[Name]");
+        alert("Submitted !! Thank You " + name);
+        form.reset();
+        setIsFormSubmitted(true); // 🔒 prevent showing again
+        handleClose();
+        clearInterval(intervalRef.current); // stop interval forever
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Something went wrong. Try again later.");
+    }
+  };
+    
   return (
   <>
         {/* Header Section */}
@@ -75,7 +104,7 @@ const Contact = () => {
          Contact Us 
           </h1>
           <p className="text-gray-300 text-base sm:text-lg md:text-xl">
-            Get in touch and let us know how we can help.
+            Get in touch and let us know how we can assist.
           </p>
         </div>
       </div>
@@ -116,8 +145,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="max-w-lg md:max-w-2xl mx-auto text-gray-400 text-base sm:text-base"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-            luctus nec ullamcorper mattis, pulvinar dapibus leo.
+           Reach out and let us handle every detail of your post-production project.
           </motion.p>
         </div>
 
@@ -134,7 +162,7 @@ const Contact = () => {
               {
                 icon: <FaEnvelope className="text-2xl sm:text-3xl" />,
                 title: "Email us",
-                text: "contact@lorinzazenix.com",
+                text: "contact@lorinzazenixpostproduction.com",
                 color: "from-yellow-400 to-green-400",
               },
               {
@@ -175,16 +203,15 @@ const Contact = () => {
           viewport={{ once: true }}
           className="relative max-w-7xl mt-9 mx-auto rounded-xl overflow-hidden shadow-[0_0_25px_rgba(254,26,136,0.12)] h-[300px] sm:h-[400px] lg:h-[450px] z-10"
         >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.0274633770712!2d-0.119543484382516!3d51.50329787963583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900e5bb4f%3A0xf0d7e8f72b09d50c!2sLondon%20Eye!5e0!3m2!1sen!2suk!4v1693084350000!5m2!1sen!2suk"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Google Map"
-          ></iframe>
+         <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.638553231171!2d72.93556337596684!3d19.167292649098727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b95393ca9d37%3A0x42654bf89712cee7!2sMarathon%20Millennium!5e0!3m2!1sen!2sin!4v1762236424492!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
         </motion.div>
       </section>
 
@@ -214,74 +241,103 @@ const Contact = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto text-gray-400 text-base sm:text-base leading-relaxed"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-            ullamcorper mattis, pulvinar dapibus leo.
+           Reach out and let us handle every detail of your post-production project.
           </motion.p>
         </div>
 
         {/* Form */}
-     <motion.form
-  className="relative max-w-3xl mx-auto space-y-4 z-10"
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
->
-  {[
-    ["Name", "Company"],
-    ["Phone", "Email"],
-  ].map((row, rowIndex) => (
-    <motion.div
-      key={rowIndex}
-      className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-      variants={fadeUp}
-      custom={rowIndex}
+        <motion.form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className="relative max-w-3xl mx-auto space-y-4 z-10"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
     >
-      {row.map((field, i) => (
-        <div key={i}>
-          <label className="block text-sm font-medium mb-2">{field}</label>
-          <input
-            type={field === "Email" ? "email" : "text"}
-            placeholder={field}
-            className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-          />
-        </div>
+      {/* 🔸 Name & Company */}
+      {[
+        ["Name", "Company"],
+        ["Phone", "Email"],
+      ].map((row, rowIndex) => (
+        <motion.div
+          key={rowIndex}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          variants={fadeUp}
+          custom={rowIndex}
+        >
+          {row.map((field, i) => (
+            <div key={i}>
+              <label className="block text-sm font-medium mb-2">{field}</label>
+              <input
+                type={field === "Email" ? "email" : "text"}
+                name={`data[${field}]`}
+                placeholder={field}
+                className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+                required
+              />
+            </div>
+          ))}
+        </motion.div>
       ))}
-    </motion.div>
-  ))}
 
-  <motion.div variants={fadeUp}>
-    <div>
-      <label className="block text-sm font-medium mb-2">Subject</label>
-      <input
-        type="text"
-        placeholder="Subject"
-        className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-      />
-    </div>
-  </motion.div>
+      {/* 🔸 Date & Service */}
+      <motion.div variants={fadeUp}>
+        <div className="flex flex-col md:flex-row gap-3">
+          <div className="flex-1">
+            <label className="text-base text-left text-white mb-1 block">
+              Date
+            </label>
+            <input
+              type="date"
+              name="data[Date]"
+              className="w-full px-3 py-2 rounded-md bg-[#1c1c1f] text-gray-200 outline-none"
+              required
+            />
+          </div>
+          <div className="flex-1">
+            <label className="text-base text-left text-white mb-1 block">
+              Service
+            </label>
+            <select
+              name="data[Service]"
+              className="w-full px-3 py-2 rounded-md bg-[#1c1c1f] text-gray-200 outline-none"
+              required
+            >
+              <option>Entire Film Editing</option>
+              <option>VFX & CGI Studio Work</option>
+              <option>Sound Design & Final Mixing</option>
+              <option>Trailer & Promo Editing</option>
+              <option>Digital Film Branding & Promotion</option>
+            </select>
+          </div>
+        </div>
+      </motion.div>
 
-  <motion.div variants={fadeUp}>
-    <div>
-      <label className="block text-sm font-medium mb-2">Message</label>
-      <textarea
-        rows="5"
-        placeholder="Message"
-        className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-pink-500"
-      ></textarea>
-    </div>
-  </motion.div>
+      {/* 🔸 Message */}
+      <motion.div variants={fadeUp}>
+        <div>
+          <label className="block text-sm font-medium mb-2">Message</label>
+          <textarea
+            rows="5"
+            name="data[Message]"
+            placeholder="Message"
+            className="w-full bg-[#1c1c1f] text-gray-200 px-4 py-3 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-pink-500"
+            required
+          ></textarea>
+        </div>
+      </motion.div>
 
-  <motion.div variants={fadeUp}>
-    <button
-      type="submit"
-      className="w-full flex items-center justify-center gap-2 py-3 text-white font-medium rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition duration-200"
-    >
-      <FaEnvelope />
-      Send Message
-    </button>
-  </motion.div>
-</motion.form>
-
+      {/* 🔸 Submit Button */}
+      <motion.div variants={fadeUp}>
+        <button
+          type="submit"
+          className="w-full flex items-center justify-center gap-2 py-3 text-white font-medium rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition duration-200"
+        >
+          <FaEnvelope />
+          Send Message
+        </button>
+      </motion.div>
+    </motion.form>
 
       </section>
 

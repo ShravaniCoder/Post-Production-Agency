@@ -7,7 +7,7 @@ const WhyChooseUs = () => {
     {
       title: "Industry Expertise",
       description:
-        "A leading Marathi post production house and film restoration company in India.",
+        "We craft post-production solutions that make every project shine.",
     },
     {
       title: "Creative Storytelling",
@@ -108,7 +108,7 @@ const WhyChooseUs = () => {
               variants={fadeFromRight}
               className="text-2xl md:text-4xl lg:text-5xl font-tasa-orbiter font-bold leading-snug"
             >
-              We make your business <br /> look good.
+             We make your story <br /> cinematic.
             </motion.h2>
           </motion.div>
 

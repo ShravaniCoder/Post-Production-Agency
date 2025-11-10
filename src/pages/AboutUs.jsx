@@ -37,10 +37,10 @@ const AboutUs = () => {
              />
      
              <motion.div
-               className="absolute w-[180%] h-[150%] -right-[20%] -top-[30%] rounded-full"
+               className="absolute w-[100%] h-[50%] -right-[20%] -top-[30%] rounded-full"
                style={{
                  background:
-                   "radial-gradient(closest-side at 60% 60%, rgba(254,26,136,0.28) 0%, rgba(254,26,136,0.20) 20%, rgba(254,26,136,0.10) 45%, transparent 70%)",
+                   "radial-gradient(closest-side at 90% 100%, rgba(254,26,136,0.28) 0%, rgba(254,26,136,0.20) 20%, rgba(254,26,136,0.10) 45%, transparent 70%)",
                  filter: "blur(120px) saturate(120%)",
                }}
                animate={{
@@ -73,13 +73,13 @@ const AboutUs = () => {
               About Us 
                </h1>
                <p className="text-gray-300 text-base sm:text-lg md:text-xl">
-                 Get in touch and let us know how we can help.
+                 Get in touch and let us know how we can assist.
                </p>
              </div>
            </div>
 
       {/* 🔹 Main Section */}
-      <section className="relative bg-gradient-to-b from-black via-[#0b0005] to-black h-auto flex flex-col items-center justify-center px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pb-20">
+      <section className="relative bg-gradient-to-b from-black via-[#0b0005] to-black h-auto flex flex-col items-center justify-center px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]  md:pb-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(254,26,136,0.08),transparent_70%)]"></div>
 
         <div className=" bg-gradient-to-l my-10 from-fuchsia-700 to-pink-600 w-80 h-12 rounded-full shadow-lg"></div>

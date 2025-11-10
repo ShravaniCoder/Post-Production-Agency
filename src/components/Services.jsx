@@ -115,7 +115,7 @@ const Services = () => {
               Our Services
                </h1>
                <p className="text-gray-300 text-base sm:text-lg md:text-xl">
-                 Get in touch and let us know how we can help.
+                From editing to color grading, we craft every detail to perfection.
                </p>
              </div>
            </div>

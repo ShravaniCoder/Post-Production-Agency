@@ -19,7 +19,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative w-full text-white py-12 overflow-hidden">
+    <footer className="relative w-full text-white bg-black py-12  overflow-hidden">
       {/* Background image */}
       <img
         src={FooterImg}
@@ -48,7 +48,7 @@ const Footer = () => {
               className="w-36 md:w-44 mb-6"
             />
             <p className="text-gray-300 text-base md:text-lg font-inter leading-relaxed max-w-xs">
-              Transforming spaces with creativity and precision — where design meets functionality.
+              Our team at LorinzaZenix - Where vision meets execution.
             </p>
           </motion.div>
 
@@ -93,7 +93,7 @@ const Footer = () => {
     </p>
     <p>
       <span className="font-semibold uppercase">E-mail: </span>
-    contact@lorinzazenix.com
+   contact@lorinzazenixpostproduction.com
     </p>
   </div>
 
@@ -122,7 +122,7 @@ const Footer = () => {
       </motion.div>
 
       {/* Footer Bottom */}
-      <div className="border-t border-gray-700 font-spectral-sc-regular mt-10 pt-6 text-center text-lg md:text-xl text-gray-400 relative z-10">
+      <div className="border-t border-gray-700 font-spectral-sc-regular mt-10 px-2 pt-6 text-center text-lg md:text-xl text-gray-400 relative z-10">
         &copy; {new Date().getFullYear()} LorinzaZenix Post Production. All rights reserved.
       </div>
     </footer>

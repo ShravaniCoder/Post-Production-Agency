@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap:https://lorinzazenixpostproduction.com/sitemap.xml

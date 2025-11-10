@@ -46,13 +46,6 @@ const HomeService = () => {
   ];
 
   // Animation Variants
-  const container = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.3 },
-    },
-  };
-
   const fadeFromLeft = {
     hidden: { opacity: 0, x: -80 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -76,9 +69,8 @@ const HomeService = () => {
         className="absolute inset-0 z-0 pointer-events-none will-change-transform"
         style={{ mixBlendMode: "screen" }}
       >
-        {/* Left Glow */}
         <motion.div
-          className="absolute rounded-full w-[220%] h-[140%] -left-[100%] -top-[40%] sm:w-[180%] sm:h-[150%] sm:-left-[30%] sm:-top-[10%]"
+          className="absolute rounded-full w-[220%] h-[140%] -left-[100%] -top-[40%]"
           style={{
             background:
               "radial-gradient(closest-side at 25% 30%, rgba(254,26,136,0.35) 0%, rgba(254,26,136,0.22) 25%, rgba(254,26,136,0.12) 45%, transparent 70%)",
@@ -90,10 +82,8 @@ const HomeService = () => {
           }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
         />
-
-        {/* Right Glow */}
         <motion.div
-          className="absolute rounded-full w-[220%] h-[160%] -right-[60%] -top-[40%] sm:w-[180%] sm:h-[150%] sm:-right-[20%] sm:-top-[30%]"
+          className="absolute rounded-full w-[220%] h-[160%] -right-[60%] -top-[40%]"
           style={{
             background:
               "radial-gradient(closest-side at 75% 60%, rgba(254,26,136,0.35) 0%, rgba(254,26,136,0.22) 25%, rgba(254,26,136,0.12) 45%, transparent 70%)",
@@ -108,16 +98,13 @@ const HomeService = () => {
       </div>
 
       {/* === Content Layer === */}
-      <motion.div
-        className="relative z-10"
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-      >
+      <div className="relative z-10">
         {/* Header */}
         <motion.div
           variants={fadeFromLeft}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-6"
         >
           <p className="text-[#FE1A88] text-2xl font-semibold font-carme-regular uppercase mb-3">
@@ -127,69 +114,72 @@ const HomeService = () => {
 
         <motion.h2
           variants={fadeFromRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           className="text-3xl md:text-4xl lg:text-5xl font-tasa-orbiter font-bold leading-snug text-center mb-12"
         >
-          Video is the future of <br /> communication
+          We Bring Stories to Life
         </motion.h2>
 
-     {/* Services Grid */}
-<motion.div
-  className="grid grid-cols-1 md:grid-cols-3 md:gap-20 place-items-center"
-  variants={{
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.3, // controls the delay between cards
-      },
-    },
-  }}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.1 }}
->
-  {services.map((service, index) => (
-    <motion.div
-      key={service.id}
-      variants={index % 2 === 0 ? fadeFromLeft : fadeFromRight}
-      className="relative flex flex-col items-center text-center rounded-2xl px-4 transition-all duration-300 pb-10 bg-transparent"
-    >
-      <h1 className="text-2xl font-semibold mb-4">{service.title}</h1>
+        {/* === Services Grid === */}
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-20 place-items-center">
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className="relative flex flex-col items-center text-center rounded-2xl px-4 transition-all duration-300 pb-10 bg-transparent"
+            >
+              {/* Title */}
+              <motion.h1
+                variants={index % 2 === 0 ? fadeFromLeft : fadeFromRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className="text-2xl font-semibold mb-4"
+              >
+                {service.title}
+              </motion.h1>
 
-      {/* Image Animation */}
-      <motion.div
-        variants={fadeInImage}
-        className="relative w-full"
-        whileHover={{ scale: 1.03 }}
-      >
-        <motion.img
-          src={service.image}
-          alt={service.title}
-          className="w-full h-[300px] object-cover border border-gray-700 rounded-md"
-          animate={{ opacity: [0.8, 1, 0.95, 1] }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <div className="absolute bottom-[-45px] left-1/2 transform -translate-x-1/2 bg-gradient-to-l from-fuchsia-700 to-pink-600 w-36 h-12 rounded-full shadow-lg"></div>
-      </motion.div>
+              {/* Image */}
+              <motion.div
+                variants={fadeInImage}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className="relative w-full"
+                whileHover={{ scale: 1.03 }}
+              >
+                <motion.img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-[300px] object-cover border border-gray-700 rounded-md"
+                  animate={{ opacity: [0.8, 1, 0.95, 1] }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <div className="absolute bottom-[-45px] left-1/2 transform -translate-x-1/2 bg-gradient-to-l from-fuchsia-700 to-pink-600 w-36 h-12 rounded-full shadow-lg"></div>
+              </motion.div>
 
-      {/* Description */}
-      <motion.div
-        variants={fadeFromLeft}
-        className="flex flex-col items-center space-y-3 mt-16 px-4 sm:mt-12"
-      >
-        <div className="h-[2px] w-[60%] bg-gradient-to-r from-pink-600 to-fuchsia-700 rounded-full"></div>
-        <p className="text-gray-300 font-carme-regular text-lg max-w-md leading-relaxed text-center">
-          {service.description}
-        </p>
-      </motion.div>
-    </motion.div>
-  ))}
-</motion.div>
-
-      </motion.div>
+              {/* Description (when in view from alternating sides) */}
+              <motion.div
+                variants={index % 2 === 0 ? fadeFromRight : fadeFromLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-col items-center space-y-3 mt-16 px-4 sm:mt-12"
+              >
+                <div className="h-[2px] w-[60%] bg-gradient-to-r from-pink-600 to-fuchsia-700 rounded-full"></div>
+                <p className="text-gray-300 font-carme-regular text-lg max-w-md leading-relaxed text-center">
+                  {service.description}
+                </p>
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

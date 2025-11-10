@@ -4,9 +4,11 @@ import AboutV from "../assets/video/AboutVi.mp4";
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.2 });
+    const navigate = useNavigate();
 
     // Animation variants
   const textVariantsLeft = {
@@ -66,7 +68,7 @@ const Hero = () => {
       {/* Second text from right */}
       <motion.h1
         variants={textVariantsRight}
-        className="text-4xl font-pt-sans-regula md:text-6xl font-extrabold leading-tight mb-4"
+        className="text-3xl font-pt-sans-regula uppercase md:text-6xl font-extrabold leading-tight mb-4"
       >
         Bringing your <br /> ideas to life <br /> through motion
       </motion.h1>
@@ -74,22 +76,21 @@ const Hero = () => {
       {/* Third text from left */}
       <motion.p
         variants={textVariantsLeft}
-        className="text-base max-w-xl font-pt-sans-regula text-gray-200 mb-4"
+        className="text-base max-w-xl font-semibold font-pt-sans-regula text-gray-200 mb-4"
       >
-        Our video production company understands the importance of capturing
-        the perfect shot—ensuring the best results for both you and your valued
-        clients.
+       LorinzaZenix Post Production is committed to delivering excellence through expert editing, color grading, and visual effects ensuring every project meets the highest industry standards.
       </motion.p>
 
       {/* Button (optional fade-up animation) */}
-      <motion.button
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
-        className="bg-gradient-to-l font-carme-regular from-fuchsia-700 to-pink-600 hover:from-fuchsia-600 hover:to-pink-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
-      >
-        Get Started
-      </motion.button>
+       <motion.button
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1.5, duration: 0.6 }}
+      onClick={() => navigate("/services")} // 👈 navigate to service page
+      className="bg-gradient-to-l font-carme-regular from-fuchsia-700 to-pink-600 hover:from-fuchsia-600 hover:to-pink-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+    >
+      Get Started
+    </motion.button>
     </motion.div>
       </section>
 
@@ -161,8 +162,7 @@ const Hero = () => {
         variants={textVariantsRight}
         className="text-xl md:text-4xl lg:text-5xl font-bold leading-snug mb-5"
       >
-        Video production that’s <br className="hidden md:block" /> creative and
-        affordable.
+        Crafting cinematic experiences that's <br className="hidden md:block" /> inspire and engage
       </motion.h1>
 
       {/* Third text from left */}
